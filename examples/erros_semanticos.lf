@@ -1,0 +1,3 @@
+let forca : Int = 15;
+let ativo : Bool = true;
+let erro : Int = ativo; -- deve dar erro: Bool não pode ser guardado em Int

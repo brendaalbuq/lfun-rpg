@@ -1,0 +1,11 @@
+-- Extensão oficial: listas
+let inventarioVazio : List[Int] = [];
+vazio(inventarioVazio);
+
+let pocoes : List[Int] = [15, 10, 20];
+tamanho(pocoes);
+cabeca(pocoes);
+
+fun somaInventario : List[Int] -> Int;
+let somaInventario itens = if vazio(itens) then 0 else cabeca(itens) + somaInventario(cauda(itens));
+somaInventario(pocoes);

@@ -1,0 +1,12 @@
+-- Extensão oficial: recursão
+fun fatorial : Int -> Int;
+let fatorial n = if n == 0 then 1 else n * fatorial(n - 1);
+fatorial(5);
+
+fun estadoPontuacao : Int -> String;
+let estadoPontuacao pontos =
+    when (pontos) is
+        -1, 0 -> "inicial";
+        _ -> "ativo";
+    end;
+estadoPontuacao(-1);
