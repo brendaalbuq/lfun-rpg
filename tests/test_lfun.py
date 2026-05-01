@@ -1,7 +1,8 @@
 import unittest
 
 from error_utils import format_semantic_error
-from interpreter import Interpreter, SemanticError
+from interpreter import Interpreter
+from semantic_analyzer import SemanticError
 from lexer import build_lexer
 from parser import build_parser, set_source_text
 
