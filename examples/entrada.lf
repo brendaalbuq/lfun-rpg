@@ -1,35 +1,15 @@
--- Calculadora de RPG em LFun
+-- Exemplo principal: combate simples
 let forca : Int = 15;
 fun dano : Int -> Int;
 let dano n = n * 2;
-dano(forca);
-
-let vida : Int = 8;
-let estaVivo : Bool = vida > 0;
-estaVivo;
-
-fun ataqueFinal : Int -> Int;
-let ataqueFinal base = if base > 10 then critico(base) else bonus(base);
-ataqueFinal(forca);
 
 fun estadoVida : Int -> String;
-let estadoVida hp =
-    when (hp) is
-        -1 -> "invalido";
-        0 -> "morto";
-        1 -> "critico";
-        _ -> "vivo";
-    end;
-estadoVida(vida);
+let estadoVida hp = if hp > 0 then "vivo" else "morto";
 
-fun danoCombo : Int -> Int;
-let danoCombo hits = if hits == 0 then 0 else forca + danoCombo(hits - 1);
-danoCombo(3);
+let hp : Int = 18;
+let aposGolpe : Int = hp - dano(4);
 
-fun somaGolpes : List[Int] -> Int;
-let somaGolpes golpes = if vazio(golpes) then 0 else cabeca(golpes) + somaGolpes(cauda(golpes));
-let golpes : List[Int] = [12, 5, 8];
-somaGolpes(golpes);
-tamanho(golpes);
-
-"Dano total: " + "30";
+forca;
+dano(forca);
+aposGolpe;
+estadoVida(aposGolpe);

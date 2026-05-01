@@ -1,0 +1,34 @@
+-- Cenário: combate, inventário e estado de personagem
+
+let nome : String = "Arius";
+let vidaBase : Int = 42;
+let armadura : Int = 5;
+let inventario : List[Int] = [3, 7, 2, 11]; -- poções (cura)
+
+fun danoCritico : Int -> Int;
+let danoCritico golpe = critico(golpe) + bonus(golpe);
+
+fun danoLiquido : Int -> Int;
+let danoLiquido ataque = if ataque > armadura then ataque - armadura else 0;
+
+fun estado : Int -> String;
+let estado hp =
+    when (hp) is
+        0 -> "morto";
+        1, 2, 3, 4, 5 -> "critico";
+        _ -> "vivo";
+    end;
+
+fun somaPocoes : List[Int] -> Int;
+let somaPocoes xs = if vazio(xs) then 0 else cabeca(xs) + somaPocoes(cauda(xs));
+
+let ataqueBoss : Int = danoCritico(8);
+let recebido : Int = danoLiquido(ataqueBoss);
+let vidaFinal : Int = vidaBase - recebido + somaPocoes(inventario);
+
+nome;
+ataqueBoss;
+recebido;
+vidaFinal;
+estado(vidaFinal);
+tamanho(inventario);
